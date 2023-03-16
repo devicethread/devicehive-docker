@@ -41,8 +41,8 @@ javaServer:
 ingress:
   enabled: true
   annotations: {}
-  # kubernetes.io/ingress.class: nginx
-  hosts: []
+  kubernetes.io/ingress.class: traefik
+  hosts: ["hub-prod.devcicethread.com"]
 
 backendNode:
   enabled: false
@@ -71,8 +71,8 @@ proxy:
   ingress:
     enabled: true
     annotations: {}
-    #  kubernetes.io/ingress.class: nginx
-    hosts: []
+    kubernetes.io/ingress.class: traefik
+    hosts: ["hub-prod.devcicethread.com"]
 
 wsProxy:
   image: devicehive/devicehive-ws-proxy:1.1.0
