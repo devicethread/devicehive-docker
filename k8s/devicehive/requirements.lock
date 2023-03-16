@@ -1,12 +1,12 @@
 dependencies:
 - name: postgresql
-  repository: https://kubernetes-charts.storage.googleapis.com/
+  repository: https://charts.helm.sh/stable
   version: 0.11.2
 - name: kafka
-  repository: https://kubernetes-charts-incubator.storage.googleapis.com/
-  version: 0.7.2
+  repository: https://charts.helm.sh/incubator
+  version: 0.7.5
 - name: redis
-  repository: https://kubernetes-charts.storage.googleapis.com/
+  repository: https://charts.helm.sh/stable
   version: 3.2.5
-digest: sha256:147878fbd485c243b25c3962e35a8aff9c96094e5a2eefae71ba9e15c732beaf
-generated: 2018-05-23T12:20:39.782071549+03:00
+digest: sha256:45b9431abd76249d2075f409f6eef36e2055ecaf2f47ab44e0d394c5afcfcd19
+generated: "2023-03-15T14:46:55.9517076+05:30"

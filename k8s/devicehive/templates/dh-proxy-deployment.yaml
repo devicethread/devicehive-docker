@@ -1,5 +1,5 @@
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-devicehive-proxy
@@ -10,10 +10,14 @@ metadata:
     release: "{{ .Release.Name }}"
 spec:
   replicas: {{ .Values.proxy.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-devicehive-proxy
   template:
     metadata:
       labels:
         app: {{ .Release.Name }}-devicehive-proxy
+      name: {{ .Release.Name }}-devicehive-proxy
     spec:
       serviceAccountName: {{ if .Values.rbac.create }}{{ template "devicehive.fullname" . }}{{ else }}"{{ .Values.rbac.serviceAccountName }}"{{ end}}
       containers:

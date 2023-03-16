@@ -1,5 +1,5 @@
 {{- if not .Values.backendNode.enabled }}
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-devicehive-backend
@@ -10,10 +10,14 @@ metadata:
     release: "{{ .Release.Name }}"
 spec:
   replicas: {{ .Values.javaServer.backend.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-devicehive-backend
   template:
     metadata:
       labels:
         app: {{ .Release.Name }}-devicehive-backend
+      name: {{ .Release.Name }}-devicehive-backend
     spec:
       serviceAccountName: {{ if .Values.rbac.create }}{{ template "devicehive.fullname" . }}{{ else }}"{{ .Values.rbac.serviceAccountName }}"{{ end}}
       containers:

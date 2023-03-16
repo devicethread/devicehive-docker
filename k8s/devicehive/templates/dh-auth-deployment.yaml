@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-devicehive-auth
@@ -9,10 +9,14 @@ metadata:
     release: "{{ .Release.Name }}"
 spec:
   replicas: {{ .Values.javaServer.auth.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-devicehive-auth  
   template:
     metadata:
       labels:
         app: {{ .Release.Name }}-devicehive-auth
+      name: {{ .Release.Name }}-devicehive-auth
     spec:
       serviceAccountName: {{ if .Values.rbac.create }}{{ template "devicehive.fullname" . }}{{ else }}"{{ .Values.rbac.serviceAccountName }}"{{ end}}
       containers:

@@ -1,5 +1,5 @@
 {{- if eq .Values.javaServer.bus "wsproxy" }}
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-devicehive-ws-proxy-internal
@@ -10,10 +10,14 @@ metadata:
     release: "{{ .Release.Name }}"
 spec:
   replicas: {{ .Values.wsProxy.internal.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-devicehive-ws-proxy-internal
   template:
     metadata:
       labels:
         app: {{ .Release.Name }}-devicehive-ws-proxy-internal
+      name: {{ .Release.Name }}-devicehive-ws-proxy-internal
     spec:
       serviceAccountName: {{ if .Values.rbac.create }}{{ template "devicehive.fullname" . }}{{ else }}"{{ .Values.rbac.serviceAccountName }}"{{ end}}
       containers:

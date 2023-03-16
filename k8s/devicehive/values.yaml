@@ -39,7 +39,7 @@ javaServer:
   jwtSecret: ""
 
 ingress:
-  enabled: false
+  enabled: true
   annotations: {}
   # kubernetes.io/ingress.class: nginx
   hosts: []
@@ -69,7 +69,7 @@ proxy:
   replicaCount: 1
   resources: {}
   ingress:
-    enabled: false
+    enabled: true
     annotations: {}
     #  kubernetes.io/ingress.class: nginx
     hosts: []
