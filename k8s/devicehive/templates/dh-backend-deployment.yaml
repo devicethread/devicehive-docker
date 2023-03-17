@@ -33,11 +33,11 @@ spec:
           value: "{{ .Release.Name }}-devicehive-ws-proxy-internal:3000"
         {{- end }}
         - name: DH_KAFKA_BOOTSTRAP_SERVERS
-          value: "{{ .Release.Name }}-kafka:9092"
+          value: "{{ .Values.kafka.server }}"
         - name: DH_ZK_ADDRESS
-          value: "{{ .Release.Name }}-zookeeper"
+          value: "{{ .Values.kafka.zookeeper }}"
         - name: DH_ZK_PORT
-          value: "2181"
+          value: "{{ .Values.kafka.zookeeperPort }}"
         - name: DH_POSTGRES_ADDRESS
           value: "{{ .Values.postgresql.postgresHost }}"
         - name: DH_POSTGRES_DB
