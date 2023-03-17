@@ -21,35 +21,61 @@ spec:
     - http:
         paths:
           - path: /auth
+            pathType: Prefix
             backend:
               #serviceName: {{ $releaseName }}-devicehive-auth
               #servicePort: 8090
               service:
                 name: {{ $releaseName }}-devicehive-auth
-              port:
-                number: 8090
+                port:
+                  number: 8090
           - path: /admin
+            pathType: Prefix
             backend:
-              serviceName: {{ $releaseName }}-devicehive-proxy
-              servicePort: 8080
+              #serviceName: {{ $releaseName }}-devicehive-proxy
+              #servicePort: 8080
+              service:
+                name: {{ $releaseName }}-devicehive-proxy
+                port:
+                  number: 8080
           - path: /api/rest/token
+            pathType: Prefix
             backend:
-              serviceName: {{ $releaseName }}-devicehive-auth
-              servicePort: 8090
+              #serviceName: {{ $releaseName }}-devicehive-auth
+              #servicePort: 8090
+              service:
+                name: {{ $releaseName }}-devicehive-auth
+                port:
+                  number: 8090
           - path: /api
+            pathType: Prefix
             backend:
-              serviceName: {{ $releaseName }}-devicehive-frontend
-              servicePort: 8080
+              #serviceName: {{ $releaseName }}-devicehive-frontend
+              #servicePort: 8080
+              service:
+                name: {{ $releaseName }}-devicehive-frontend
+                port:
+                  number: 8080
           {{- if $javaServerPluginEnabled }}
           - path: /plugin
+            pathType: Prefix
             backend:
-              serviceName: {{ $releaseName }}-devicehive-plugin
-              servicePort: 8110
+              #serviceName: {{ $releaseName }}-devicehive-plugin
+              #servicePort: 8110
+              service:
+                name: {{ $releaseName }}-devicehive-plugin
+                port:
+                  number: 8110
           {{- end }}
           {{- if $wsProxyExternalEnabled }}
           - path: /plugin/proxy
+            pathType: Prefix
             backend:
-              serviceName: {{ $releaseName }}-devicehive-ws-proxy-external
-              servicePort: 3000
+              #serviceName: {{ $releaseName }}-devicehive-ws-proxy-external
+              #servicePort: 3000
+              service:
+                name: {{ $releaseName }}-devicehive-ws-proxy-external
+                port:
+                  number: 3000
           {{- end }}
 {{- end -}}

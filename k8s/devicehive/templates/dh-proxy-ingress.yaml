@@ -16,13 +16,18 @@ metadata:
     release: "{{ .Release.Name }}"
 spec:
   rules:
-  {{- range .Values.proxy.ingress.hosts }}
-    - host: {{ . }}
-      http:
+  #{{- range .Values.proxy.ingress.hosts }}
+    #- host: {{ . }}
+    - http:
         paths:
-          - backend:
-              serviceName: {{ $releaseName }}-devicehive-proxy
-              servicePort: 8080
-            path: /
-  {{- end }}
+          - path: /
+            pathType: Prefix
+            backend:
+              #serviceName: {{ $releaseName }}-devicehive-proxy
+              #servicePort: 8080
+              service:
+                name: {{ $releaseName }}-devicehive-proxy
+                port:
+                  number: 8080            
+  #{{- end }}
 {{- end -}}

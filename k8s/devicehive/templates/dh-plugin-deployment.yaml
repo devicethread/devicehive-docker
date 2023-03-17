@@ -39,11 +39,11 @@ spec:
         - name: DH_AUTH_URL
           value: "http://{{ .Release.Name }}-devicehive-auth:8090/auth/rest"
         - name: DH_POSTGRES_ADDRESS
-          value: "{{ .Release.Name }}-postgresql"
+          value: "{{ .Values.postgresql.postgresHost }}"
         - name: DH_POSTGRES_DB
           value: "{{ .Values.postgresql.postgresDatabase }}"
         - name: DH_POSTGRES_PORT
-          value: "5432"
+          value: "{{ .Values.postgresql.postgresPort }}"
         - name: DH_POSTGRES_USERNAME
           value: "{{ .Values.postgresql.postgresUser }}"
         - name: DH_POSTGRES_PASSWORD

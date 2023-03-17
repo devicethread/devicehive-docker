@@ -94,10 +94,12 @@ rbac:
 # External dependencies
 # PostgreSQL
 postgresql:
-  enabled: true
-  postgresDatabase: devicehivedb
+  enabled: false
+  postgresDatabase: devicehive
   postgresUser: devicehive
-  postgresPassword: devicehivepassword
+  postgresPassword: HZQtoOBeFxPhFOYtfSAs
+  postgresHost: dh-test.cjj4wvruc8hl.us-west-1.rds.amazonaws.com
+  postgresPort: 5432
   persistence:
     enabled: true
     size: 1Gi
