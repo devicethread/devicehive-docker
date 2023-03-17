@@ -108,12 +108,9 @@ postgresql:
 # Apache Kafka
 kafka:
   enabled: false
-  server: b-1.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:9092,b-2.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:9092
-  zookeeper: z-2.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:2181,z-3.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:2181,z-1.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com
+  kafkaServer: b-1.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:9092,b-2.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:9092
+  zookeeperServer: z-2.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:2181,z-3.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:2181,z-1.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com
   zookeeperPort: 2181
-
-
-
 
 # Redis for syncronization between MQTT brokers
 redis:

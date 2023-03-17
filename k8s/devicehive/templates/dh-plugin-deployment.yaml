@@ -29,9 +29,9 @@ spec:
           value: "{{ .Release.Name }}-devicehive-ws-proxy-internal:3000"
         {{- end }}
         - name: DH_KAFKA_BOOTSTRAP_SERVERS
-          value: "{{ .Values.kafka.server }}"
+          value: "{{ .Values.kafka.kafkaServer }}"
         - name: DH_ZK_ADDRESS
-          value: "{{ .Values.kafka.zookeeper }}"
+          value: "{{ .Values.kafka.zookeeperServer }}"
         - name: DH_ZK_PORT
           value: "{{ .Values.kafka.zookeeperPort }}"
         - name: DH_RPC_CLIENT_RES_CONS_THREADS
@@ -53,9 +53,9 @@ spec:
           value: {{ .Values.javaServer.plugin.pluginConnectUrl | default "ws://localhost/plugin/proxy" | quote }}
 {{- end }}
         - name: DH_ZK_ADDRESS
-          value: "{{ .Release.Name }}-zookeeper"
+          value: "{{ .Values.kafka.zookeeperServer }}"
         - name: DH_ZK_PORT
-          value: "2181"
+          value: "{{ .Values.kafka.zookeeperPort }}"
         - name: JWT_SECRET
           valueFrom:
             secretKeyRef:
