@@ -42,7 +42,7 @@ ingress:
   enabled: true
   annotations: {}
   kubernetes.io/ingress.class: traefik
-  hosts: ["hub-prod.devcicethread.com"]
+  hosts: ["hub-prod.devicethread.com"]
 
 backendNode:
   enabled: false
@@ -72,7 +72,7 @@ proxy:
     enabled: true
     annotations: {}
     kubernetes.io/ingress.class: traefik
-    hosts: ["hub-prod.devcicethread.com"]
+    hosts: ["hub-prod.devicethread.com"]
 
 wsProxy:
   image: devicehive/devicehive-ws-proxy:1.1.0
