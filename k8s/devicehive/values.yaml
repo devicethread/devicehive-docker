@@ -46,7 +46,7 @@ ingress:
   hosts: ["hub-prod.devicethread.com"]
 
 backendNode:
-  enabled: false
+  enabled: true
   #https://hub.docker.com/r/devicehive/devicehive-backend-node/tags
   image: devicehive/devicehive-backend-node:development
   pullPolicy: IfNotPresent
