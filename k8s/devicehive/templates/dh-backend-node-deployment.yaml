@@ -23,6 +23,8 @@ spec:
         env:
         - name: ENVSEPARATOR
           value: '_'
+        - name: BACKEND_LOGGER_LEVEL
+          value: {{ .Values.backendNode.loggerLevel | quote }}
         - name: PROXY_WS_PROXY_ENDPOINT: ws://wsproxy:3000
           value: "ws://{{ .Release.Name }}-devicehive-ws-proxy-internal:3000"
         - name: POSTGRES_HOST: ${DH_POSTGRES_ADDRESS:-postgres}
