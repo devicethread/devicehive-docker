@@ -125,3 +125,5 @@ kafka:
 redis:
   # MQTT broker doesn't support password auth with Redis so disable it
   usePassword: false
+  host: dh-test.psapb0.clustercfg.usw1.cache.amazonaws.com
+  port: 6379

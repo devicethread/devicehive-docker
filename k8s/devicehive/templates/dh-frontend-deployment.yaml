@@ -49,6 +49,10 @@ spec:
           value: "{{ .Values.postgresql.postgresUser }}"
         - name: DH_POSTGRES_PASSWORD
           value: "{{ .Values.postgresql.postgresPassword }}"
+        - name: REDIS_MASTER_HOST
+          value: "{{ .Values.redis.host }}"
+        - name: REDIS_MASTER_PORT
+          value: "{{ .Values.redis.port }}"
         - name: HC_GROUP_NAME
           value: "dev"
         - name: HC_GROUP_PASSWORD
