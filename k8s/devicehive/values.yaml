@@ -1,6 +1,7 @@
 javaServer:
   repository: devicehive
-  tag: 3.5.0
+  #tag: 3.5.0
+  tag: latest
   pullPolicy: IfNotPresent
   auth:
     replicaCount: 1
@@ -46,6 +47,7 @@ ingress:
 
 backendNode:
   enabled: false
+  #https://hub.docker.com/r/devicehive/devicehive-backend-node/tags
   image: devicehive/devicehive-backend-node:development
   pullPolicy: IfNotPresent
   loggerLevel: info
@@ -54,7 +56,9 @@ backendNode:
 
 mqttBroker:
   enabled: false
-  image: devicehive/devicehive-mqtt:1.1.0
+  #https://hub.docker.com/r/devicehive/devicehive-mqtt/tags
+  #image: devicehive/devicehive-mqtt:1.1.0
+  image: devicehive/devicehive-mqtt:latest
   pullPolicy: IfNotPresent
   replicaCount: 1
   resources: {}
@@ -64,7 +68,9 @@ mqttBroker:
   appLogLevel: info
 
 proxy:
-  image: devicehive/devicehive-proxy:3.5.0
+  #https://hub.docker.com/r/devicehive/devicehive-proxy/tags
+  #image: devicehive/devicehive-proxy:3.5.0
+  image: devicehive/devicehive-proxy:development
   pullPolicy: IfNotPresent
   replicaCount: 1
   resources: {}
@@ -75,7 +81,9 @@ proxy:
     hosts: ["hub-prod.devicethread.com"]
 
 wsProxy:
-  image: devicehive/devicehive-ws-proxy:1.1.0
+  #https://hub.docker.com/r/devicehive/devicehive-ws-proxy/tags
+  #image: devicehive/devicehive-ws-proxy:1.1.0
+  image: devicehive/devicehive-ws-proxy:latest
   pullPolicy: IfNotPresent
   internal:
     replicaCount: 1
@@ -95,7 +103,7 @@ rbac:
 # PostgreSQL
 postgresql:
   enabled: false
-  postgresDatabase: devicehive
+  postgresDatabase: postgres
   postgresUser: devicehive
   postgresPassword: HZQtoOBeFxPhFOYtfSAs
   postgresHost: dh-test.cjj4wvruc8hl.us-west-1.rds.amazonaws.com
@@ -109,7 +117,8 @@ postgresql:
 kafka:
   enabled: false
   kafkaServer: b-1.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:9092,b-2.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:9092
-  zookeeperServer: z-2.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:2181,z-3.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:2181,z-1.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com
+  #zookeeperServer: 'z-2.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:2181,z-3.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:2181,z-1.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com:'
+  zookeeperServer: z-2.dhtest.dk0tbt.c4.kafka.us-west-1.amazonaws.com
   zookeeperPort: 2181
 
 # Redis for syncronization between MQTT brokers
