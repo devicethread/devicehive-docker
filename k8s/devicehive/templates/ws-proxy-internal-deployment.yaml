@@ -28,8 +28,8 @@ spec:
         - name: ENVSEPARATOR
           value: '_'
         - name: KAFKA_KAFKA_HOSTS
-          #value: "{{ .Release.Name }}-kafka:9092"
-          value: "{{ .Values.kafka.kafkaServer }}"
+          value: "{{ .Release.Name }}-kafka:9092"
+          #value: "{{ .Values.kafka.kafkaServer }}"
         - name: PROXY_WEB_SOCKET_SERVER_HOST
           valueFrom:
             fieldRef:
