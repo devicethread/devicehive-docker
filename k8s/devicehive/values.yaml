@@ -1,7 +1,7 @@
 javaServer:
   repository: devicehive
-  #tag: 3.5.0
-  tag: latest
+  tag: 3.5.0
+  #tag: latest
   pullPolicy: IfNotPresent
   auth:
     replicaCount: 1
@@ -46,7 +46,7 @@ ingress:
   hosts: ["hub-prod.devicethread.com"]
 
 backendNode:
-  enabled: true
+  enabled: false
   #https://hub.docker.com/r/devicehive/devicehive-backend-node/tags
   image: devicehive/devicehive-backend-node:development
   pullPolicy: IfNotPresent
@@ -57,8 +57,8 @@ backendNode:
 mqttBroker:
   enabled: false
   #https://hub.docker.com/r/devicehive/devicehive-mqtt/tags
-  #image: devicehive/devicehive-mqtt:1.1.0
-  image: devicehive/devicehive-mqtt:latest
+  image: devicehive/devicehive-mqtt:1.1.0
+  #image: devicehive/devicehive-mqtt:latest
   pullPolicy: IfNotPresent
   replicaCount: 1
   resources: {}
@@ -69,8 +69,8 @@ mqttBroker:
 
 proxy:
   #https://hub.docker.com/r/devicehive/devicehive-proxy/tags
-  #image: devicehive/devicehive-proxy:3.5.0
-  image: devicehive/devicehive-proxy:development
+  image: devicehive/devicehive-proxy:3.5.0
+  #image: devicehive/devicehive-proxy:development
   pullPolicy: IfNotPresent
   replicaCount: 1
   resources: {}
@@ -82,8 +82,8 @@ proxy:
 
 wsProxy:
   #https://hub.docker.com/r/devicehive/devicehive-ws-proxy/tags
-  #image: devicehive/devicehive-ws-proxy:1.1.0
-  image: devicehive/devicehive-ws-proxy:latest
+  image: devicehive/devicehive-ws-proxy:1.1.0
+  #image: devicehive/devicehive-ws-proxy:latest
   pullPolicy: IfNotPresent
   internal:
     replicaCount: 1
@@ -103,7 +103,7 @@ rbac:
 # PostgreSQL
 postgresql:
   enabled: false
-  postgresDatabase: postgres
+  postgresDatabase: dh1
   postgresUser: devicehive
   postgresPassword: HZQtoOBeFxPhFOYtfSAs
   postgresHost: dh-test.cjj4wvruc8hl.us-west-1.rds.amazonaws.com
