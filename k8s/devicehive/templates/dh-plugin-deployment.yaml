@@ -29,14 +29,14 @@ spec:
           value: "{{ .Release.Name }}-devicehive-ws-proxy-internal:3000"
         {{- end }}
         - name: DH_KAFKA_BOOTSTRAP_SERVERS
-          value: "{{ .Values.kafka.kafkaServer }}"
-          #value: "{{ .Release.Name }}-kafka:9092"
+          #value: "{{ .Values.kafka.kafkaServer }}"
+          value: "{{ .Release.Name }}-kafka:9092"
         - name: DH_ZK_ADDRESS
-          value: "{{ .Values.kafka.zookeeperServer }}"
-          #value: "{{ .Release.Name }}-zookeeper"
+          #value: "{{ .Values.kafka.zookeeperServer }}"
+          value: "{{ .Release.Name }}-zookeeper"
         - name: DH_ZK_PORT
-          value: "{{ .Values.kafka.zookeeperPort }}"
-          #value: "2181"
+          #value: "{{ .Values.kafka.zookeeperPort }}"
+          value: "2181"
         - name: DH_RPC_CLIENT_RES_CONS_THREADS
           value: "3"
         - name: DH_AUTH_URL
