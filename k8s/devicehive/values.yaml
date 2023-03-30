@@ -103,10 +103,12 @@ rbac:
 # PostgreSQL
 postgresql:
   enabled: false
-  postgresDatabase: dh1
+  #postgresDatabase: dh1
+  postgresDatabase: postgres
   postgresUser: devicehive
   postgresPassword: HZQtoOBeFxPhFOYtfSAs
-  postgresHost: dh-test.cjj4wvruc8hl.us-west-1.rds.amazonaws.com
+  #postgresHost: dh-test.cjj4wvruc8hl.us-west-1.rds.amazonaws.com
+  postgresHost: dh-test-serverless.cluster-cjj4wvruc8hl.us-west-1.rds.amazonaws.com
   postgresPort: 5432
   persistence:
     enabled: true
